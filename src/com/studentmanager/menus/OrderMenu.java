@@ -32,6 +32,6 @@ public class OrderMenu {
         System.out.println("3. Sort by total price (ascend).");
         System.out.println("4. Sort by total price (descend).");
         System.out.println("0. Return.");
-        System.out.print("Select");
+        System.out.print("Select: ");
     }
 }

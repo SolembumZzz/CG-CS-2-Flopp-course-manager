@@ -9,6 +9,8 @@ import com.studentmanager.utils.CSVUtils;
 public class OrderItemService implements IOrderItemService {
     static String path = "data/orderitem.csv";
 
+    public OrderItemService(){}
+
     @Override
     public ArrayList<OrderItem> getOrderItems() {
         ArrayList<OrderItem> orderItemList = new ArrayList<>();
@@ -35,6 +37,7 @@ public class OrderItemService implements IOrderItemService {
         return null;
     }
 
+    @Override
     public ArrayList<OrderItem> getOrderItemByOrderId(double id) {
         ArrayList<OrderItem> foundItems = new ArrayList<>();
         for (OrderItem item: getOrderItems()) {

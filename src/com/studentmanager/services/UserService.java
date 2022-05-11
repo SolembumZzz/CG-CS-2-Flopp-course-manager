@@ -17,6 +17,8 @@ public class UserService implements IUserService {
 
     public static String userName;
 
+    public UserService(){}
+
     @Override
     public ArrayList<User> getUsers() {
         ArrayList<User> userList = new ArrayList<>();

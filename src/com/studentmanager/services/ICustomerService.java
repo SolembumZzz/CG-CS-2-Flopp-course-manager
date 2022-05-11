@@ -20,4 +20,5 @@ public interface ICustomerService {
     void sortByNameDESC();
 
     ArrayList<Customer> searchCustomerByName(String keyword);
+    void removeCustomerByCourseID(String id);
 }

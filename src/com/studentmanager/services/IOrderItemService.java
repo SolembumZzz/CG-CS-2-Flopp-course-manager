@@ -13,4 +13,6 @@ public interface IOrderItemService {
 
     OrderItem getOrderItemById(String id);
 
+    ArrayList<OrderItem> getOrderItemByOrderId(double id);
+
 }

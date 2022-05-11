@@ -2,11 +2,7 @@ package com.studentmanager.menus;
 
 public class LoginMenu {
     public static void displayGreeting() {
-        System.out.println("✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽ ");
-        System.out.println("✽                                      ✽");
-        System.out.println("✽         FLOPP COURSE MANAGER         ✽");
-        System.out.println("✽                                      ✽");
-        System.out.println("✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽ ✽");
+        System.out.println("========FLOPP COURSE MANAGER========");
     }
 
     public static void displayLoginMenu() {

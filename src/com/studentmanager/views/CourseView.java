@@ -7,6 +7,7 @@ import java.util.Scanner;
 import com.studentmanager.menus.CourseManagerMenu;
 import com.studentmanager.models.Course;
 import com.studentmanager.services.CourseService;
+import com.studentmanager.services.ICourseService;
 import com.studentmanager.utils.Validity;
 import com.studentmanager.utils.ValueFormatter;
 
@@ -47,7 +48,7 @@ public class CourseView {
     }
 
     public static void renderCourses() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         if (courseService.getCourses().size() == 0){
             printNoCourse();
             return;
@@ -77,7 +78,7 @@ public class CourseView {
     }
 
     public static void displayCourses() {
-        CourseService courseList = new CourseService();
+        ICourseService courseList = new CourseService();
         int choice = -1;
         do {
             renderCourses();
@@ -124,7 +125,7 @@ public class CourseView {
     }
 
     public static void searchCourse() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         do {
             printOneReturnOption();
             System.out.print("Enter keyword: ");
@@ -223,7 +224,7 @@ public class CourseView {
     }
 
     public static void removeCourse() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         do {
             renderCourses();
             printTwoSameReturnOptions();
@@ -246,7 +247,7 @@ public class CourseView {
     }
 
     public static void editCourse() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         do {
             renderCourses();
             printOneReturnOption();
@@ -264,7 +265,7 @@ public class CourseView {
     }
 
     public static void updateCourse(String id) {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         int choice = -1;
         do {
             renderCourses();
@@ -400,7 +401,7 @@ public class CourseView {
     }
 
     public static String getNewStartDate() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         do {
             System.out.print("Starting date (dd/mm/yyyy): ");
             String newStartDate = input.nextLine();

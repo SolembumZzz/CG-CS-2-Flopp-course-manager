@@ -3,6 +3,7 @@ package com.studentmanager.views;
 import java.util.Scanner;
 
 import com.studentmanager.menus.LoginMenu;
+import com.studentmanager.services.IUserService;
 import com.studentmanager.services.UserService;
 
 import static com.studentmanager.utils.Warnings.*;
@@ -10,7 +11,7 @@ import static com.studentmanager.utils.LinePrinter.*;
 
 public class LoginView {
     static Scanner input = new Scanner(System.in);
-    UserService userService = new UserService();
+    IUserService userService = new UserService();
 
     public void run() {
         int choice = -1;

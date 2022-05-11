@@ -56,7 +56,7 @@ public class CourseService implements ICourseService {
     @Override
     public void removeCourseByID(String id) {
         ArrayList<Course> courseList = getCourses();
-        CustomerService customerService = new CustomerService();
+        ICustomerService customerService = new CustomerService();
         for (int i = 0; i < courseList.size(); i++) {
             if (id.equals(courseList.get(i).getId())) {
                 courseList.remove(i);
@@ -73,48 +73,56 @@ public class CourseService implements ICourseService {
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByNameDESC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseNameDESC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByFeeASC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseFeeASC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByFeeDESC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseFeeDESC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByEmptySlotASC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseEmptySlotASC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByStartDateASC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseStartDateASC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByStartDateDESC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseStartDateDESC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public void sortByEmptySlotDESC() {
         ArrayList<Course> courseList = getCourses();
         courseList.sort(new CourseEmptySlotDESC());
         CSVUtils.write(path, courseList);
     }
 
+    @Override
     public ArrayList<Course> searchCourseByToString(String keyword) {
         String lwKeyword = keyword.toLowerCase();
         ArrayList<Course> searchedCourses = new ArrayList<>();
@@ -125,12 +133,14 @@ public class CourseService implements ICourseService {
         return searchedCourses;
     }
 
+    @Override
     public boolean checkCourseSlot(String id, int wantedSize) {
         Course currentCourse = getCourseByID(id);
         int studentNumber = Integer.parseInt(currentCourse.getSize().split("/")[0]);
         return wantedSize >= studentNumber;
     }
 
+    @Override
     public void updateCourseName(String id, String newName) {
         ArrayList<Course> courseList = new CourseService().getCourses();
         for (int index = 0; index < courseList.size(); index++) {
@@ -143,6 +153,7 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
     public void updateCourseFee(String id, double newFee) {
         ArrayList<Course> courseList = new CourseService().getCourses();
         for (int index = 0; index < courseList.size(); index++) {
@@ -154,6 +165,7 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
     public void updateCourseSize(String id, int newSize) {
         ArrayList<Course> courseList = new CourseService().getCourses();
         for (int index = 0; index < courseList.size(); index++) {
@@ -165,6 +177,7 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
     public void updateCourseDuration(String id, int newDuration) {
         ArrayList<Course> courseList = new CourseService().getCourses();
         for (int index = 0; index < courseList.size(); index++) {
@@ -177,6 +190,7 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
     public void updateCourseStartDate(String id, LocalDate newStartDate) {
         ArrayList<Course> courseList = new CourseService().getCourses();
         for (int index = 0; index < courseList.size(); index++) {
@@ -189,6 +203,7 @@ public class CourseService implements ICourseService {
         }
     }
 
+    @Override
     public boolean isCourseFull(String id) {
         Course targetCourse = getCourseByID(id);
         String[] currentSize = targetCourse.getSize().split("/");
@@ -199,6 +214,7 @@ public class CourseService implements ICourseService {
         return studentNum >= size;
     }
 
+    @Override
     public boolean isCourseExpired(String id) {
         Course targetCourse = getCourseByID(id);
 
@@ -207,6 +223,7 @@ public class CourseService implements ICourseService {
         return currentDate.isAfter(startDate);
     }
 
+    @Override
     public void getOneMoreStudent(String id) {
         ArrayList<Course> courseList = getCourses();
         for (int index = 0; index < courseList.size(); index++) {

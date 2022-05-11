@@ -80,7 +80,7 @@ public class OrderView {
     }
 
     public static void chooseCourse() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
         ArrayList<Course> chosenCourseList = new ArrayList<>();
 
         do {
@@ -125,8 +125,8 @@ public class OrderView {
     }
 
     public static void addCustomer(ArrayList<Course> chosenCourses) {
-        CustomerService customerService = new CustomerService();
-        CourseService courseService = new CourseService();
+        ICustomerService customerService = new CustomerService();
+        ICourseService courseService = new CourseService();
         String name = null;
         String email = null;
         String address = null;
@@ -195,8 +195,8 @@ public class OrderView {
     }
 
     public static void processNewOrder(ArrayList<Course> chosenCourses, String name, String email) {
-        OrderService orderService = new OrderService();
-        CourseService courseService = new CourseService();
+        IOrderService orderService = new OrderService();
+        ICourseService courseService = new CourseService();
 
         Order newOrder = new Order(name, email, UserService.userName);
 
@@ -221,9 +221,9 @@ public class OrderView {
     }
 
     public static void printBill(long orderId) {
-        CourseService courseService = new CourseService();
-        OrderService orderService = new OrderService();
-        OrderItemService orderItemService = new OrderItemService();
+        ICourseService courseService = new CourseService();
+        IOrderService orderService = new OrderService();
+        IOrderItemService orderItemService = new OrderItemService();
 
         Order currentOrder = orderService.getOrderByID(orderId);
         ArrayList<OrderItem> itemList = orderItemService.getOrderItemByOrderId(orderId);
@@ -304,7 +304,7 @@ public class OrderView {
     }
 
     public static String getNewCustomerId(String courseId) {
-        CustomerService customerService = new CustomerService();
+        ICustomerService customerService = new CustomerService();
 
         int count = 1;
         do {
@@ -317,7 +317,7 @@ public class OrderView {
     }
 
     public static boolean searchCourse() {
-        CourseService courseService = new CourseService();
+        ICourseService courseService = new CourseService();
 
         System.out.print("Enter keyword: ");
         String keyword = input.nextLine().toLowerCase();
@@ -330,7 +330,7 @@ public class OrderView {
     }
 
     public static void openSortMenu() {
-        CourseService courseList = new CourseService();
+        ICourseService courseList = new CourseService();
 
         printSingleLineBreak();
         CourseManagerMenu.displayCourseSorters_Order();
@@ -366,7 +366,7 @@ public class OrderView {
     }
 
     public static void displayOrderHistory() {
-        OrderService orderService = new OrderService();
+        IOrderService orderService = new OrderService();
         int choice = -1;
         do {
             renderOrder();
@@ -398,7 +398,7 @@ public class OrderView {
     }
 
     public static void renderOrder() {
-        OrderService orderService = new OrderService();
+        IOrderService orderService = new OrderService();
         ArrayList<Order> orderList = orderService.getOrders();
         if (orderList.size() == 0) {
             printNoOrder();
