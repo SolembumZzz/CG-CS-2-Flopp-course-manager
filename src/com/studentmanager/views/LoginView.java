@@ -14,6 +14,7 @@ public class LoginView {
 
     public void run() {
         int choice = -1;
+        LoginMenu.displayGreeting();
         do {
             try {
                 LoginMenu.displayLoginMenu();
